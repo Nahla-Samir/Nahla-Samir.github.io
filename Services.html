@@ -1,0 +1,814 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Happy Marriage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{% static 'blog/img/logo-favicon.png' %}" type="image/gif" sizes="16x16">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="{% static 'blog/main.css'%}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+      <!---start topbar -->
+
+      <div class="container">
+        <ul class="nav justify-content-end">
+            {% if user.is_authenticated %}
+                 <li class="nav-item">
+                  <a class="nav-link diff " href="{% url 'profile' %}">Profile</a>
+                </li>
+                <div class="vl"></div>
+                <li class="nav-item">
+                  <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+                </li>
+                <div class="vl"></div>
+
+            {% else %}
+                <li class="nav-item">
+                <a class="nav-link diff " href="{% url 'login' %}">Sign in</a>
+                </li>
+                <div class="vl"></div>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Sign up</a>
+                </li>
+                <div class="vl"></div>
+            {% endif %}
+          </ul>     
+  </div>
+  <hr>    
+      <!---end topbar -->
+
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+<a class="navbar-brand" href="/">
+<img class="logo" src="{% static 'blog/img/logo-light.png' %}" href="/">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+<ul class="navbar-nav ">
+<li class="nav-item ">
+ <a class="nav-link " href="/">Home </a>
+</li>
+<li class="nav-item">
+ <a class="nav-link" href="/about">About</a>
+</li>
+<li class="nav-item active">
+ <a class="nav-link new" href="">Services <span class="sr-only ">(current)</span></a>
+</li>
+<li class="nav-item ">
+ <a class="nav-link " href="/feedback">Feedback </a>
+</li>
+<li class="nav-item  ">
+    <a class="nav-link " href="/offers">Offers</a>
+   </li>
+<li class="nav-item">
+ <a class="nav-link btn btn-warning" href="/tryme">Try me</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+    </header>
+
+    <section class="below-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h1>Services</h1>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Services</li>
+                        </ol>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+        <section class="latestAlbum">
+      <div class="container">
+          <div class="row lat-album">
+            
+            <div class="col-xl-12 col-md-12 col-sm-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Show All</a>
+  </li>
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Artist-tab" data-toggle="tab" href="#Artist" role="tab" aria-controls="Artist" aria-selected="false">Artist</a>
+  </li>
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Beauty-tab" data-toggle="tab" href="#Beauty" role="tab" aria-controls="Beauty" aria-selected="false">Beauty</a>
+  </li>
+   <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Cake-tab" data-toggle="tab" href="#Cake" role="tab" aria-controls="Cake" aria-selected="false">Cake</a>
+  </li>
+   <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Cards-tab" data-toggle="tab" href="#Cards" role="tab" aria-controls="Cards" aria-selected="false">Cards</a>
+  </li>
+   <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Cars-tab" data-toggle="tab" href="#Cars" role="tab" aria-controls="Cars" aria-selected="false">Cars</a>
+  </li>
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Catering-tab" data-toggle="tab" href="#Catering" role="tab" aria-controls="Catering" aria-selected="false">Catering</a>
+  </li>
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Flowers-tab" data-toggle="tab" href="#Flowers" role="tab" aria-controls="Flowers" aria-selected="false">Flowers</a>
+  </li>
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Halls-tab" data-toggle="tab" href="#Halls" role="tab" aria-controls="Halls" aria-selected="false">Halls</a>
+  </li>
+  <li class="nav-item m-auto" role="presentation">
+    <a class="nav-link" id="Photographers-tab" data-toggle="tab" href="#Photographers" role="tab" aria-controls="Photographers" aria-selected="false">Photographers</a>
+  </li>
+</ul>
+</div> 
+<div class="tab-content mt-5" id="myTabContent">
+<div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+     <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Marzouk Ismail</h5>
+                  <a href="https://www.facebook.com/marzoukismail1996/" class="card-link">https://www.facebook.com/marzoukismail1996/</a>
+                  <p class="card-text">0112 911 1947</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P134</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">6000L.E</small></p></span>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="row mt-3">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Marzouk Ismail</h5>
+                  <a href="https://www.facebook.com/marzoukismail1996/" class="card-link">https://www.facebook.com/marzoukismail1996/</a>
+                  <p class="card-text">0112 911 1947</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P134</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">6000L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+     </div>
+     <div class="row mt-3">
+      
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Marzouk Ismail</h5>
+                  <a href="https://www.facebook.com/marzoukismail1996/" class="card-link">https://www.facebook.com/marzoukismail1996/</a>
+                  <p class="card-text">0112 911 1947</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P134</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">6000L.E</small></p></span>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+<div class="tab-pane fade" id="Artist" role="tabpanel" aria-labelledby="Artist-tab">
+
+</div>
+<div class="tab-pane fade" id="Beauty" role="tabpanel" aria-labelledby="Beauty-tab">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/mennayasser.jpg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Menna Yasser</h5>
+                  <a href="https://www.facebook.com/mennayasserartist/" class="card-link">https://www.facebook.com/mennayasserartist/</a>
+                  <p class="card-text">0128 102 8595 </p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M134</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">4500L.E</small></p></span>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/nada.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Nada Elshereif</h5>
+                  <a href="https://www.facebook.com/NadaElshereif55/" target="_blank" class="card-link">https://www.facebook.com/NadaElshereif55/</a>
+                  <p class="card-text">0128 555 8097</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M136</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">4500L.E</small></p></span>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/sarah.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Sarah Hesham</h5>
+                  <a href="https://www.facebook.com/SarahHeshamMakeupArtist" target="_blank" class="card-link">https://www.facebook.com/SarahHeshamMakeupArtist</a>
+                  <p class="card-text">0114 430 9718</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M142</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">3500L.E</small></p></span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/nadine.jpg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Nadine Essam</h5>
+                  <a href="https://www.facebook.com/makeup.artist.nadine//" class="card-link">https://www.facebook.com/makeup.artist.nadine/</a>
+                  <p class="card-text">0103 071 8312</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M137</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">4000L.E</small></p></span>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/yomna.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Youmna Elshafie</h5>
+                  <a href="https://www.facebook.com/YoumnaElshafie/" target="_blank" class="card-link">https://www.facebook.com/YoumnaElshafie/</a>
+                  <p class="card-text">0111 318 8494</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M138</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">5500L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/aya.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Aya Elbatt</h5>
+                  <a href="https://www.facebook.com/makeupbyayaelbatt/" target="_blank" class="card-link">https://www.facebook.com/makeupbyayaelbatt/</a>
+                  <p class="card-text">0109 356 0771</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M139</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">6000L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+        </div>
+        <div class="row mt-3">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/mennaeldeeb.jpg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Menna Eldeeb</h5>
+                  <a href="https://www.facebook.com/Menna-eldeeb-makeup-artist-1571573199767955/" class="card-link">https://www.facebook.com/Menna-eldeeb-makeup-artist-1571573199767955/</a>
+                  <p class="card-text">0112 911 1947</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M141</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">5000L.E</small></p></span>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/beauty/mariam.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Mariem Makhlouf</h5>
+                  <a href="https://www.facebook.com/MariemMakhloufMakeupArtist/" target="_blank" class="card-link">https://www.facebook.com/MariemMakhloufMakeupArtist/</a>
+                  <p class="card-text">0102 208 4889</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: M140</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">9500L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+        </div>
+</div>
+<div class="tab-pane fade" id="Cake" role="tabpanel" aria-labelledby="Cake-tab">
+  <div class="row">
+    <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake1.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Blueberry</h5>
+                  <p class="card-text">Location: New Cairo</p>
+                  <p class="card-text mb-0">Order Time: One day</p>
+                  <p class="card-text">01007010414</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA10</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 500L.E </small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake2.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Cakes Land Egypt</h5>
+                  <p class="card-text">Location: Nase City</p>
+                  <p class="card-text mb-0">Order Time: Two days</p>
+                  <p class="card-text">01006990708</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA20</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 550L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake3.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Cake Dreamz</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: Three days</p>
+                  <p class="card-text">01112572431</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA30</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 600L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake4.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Fancy Cake</h5>
+                  <p class="card-text">Location: ElThawra, Cairo</p>
+                  <p class="card-text mb-0">Order Time: One day</p>
+                  <p class="card-text">01066777089</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA40</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 450L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake5.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Yummy Tummy</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: Two days</p>
+                  <p class="card-text">01140533588</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA50</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 350L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake6.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Bakelicious</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: One day</p>
+                  <p class="card-text">01099549433</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA60</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 400L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake7.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Cake Design</h5>
+                  <p class="card-text">Location: Alexandria</p>
+                  <p class="card-text mb-0">Order Time: Two days</p>
+                  <p class="card-text">01115567632</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA70</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 550L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake8.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Tortina</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: Three days</p>
+                  <p class="card-text">01201937634</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA80</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 600L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake11.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Etsa Cake</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: One days</p>
+                  <p class="card-text">01014601608</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA110</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 400L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+  </div>
+</div>
+<div class="tab-pane fade" id="Cards" role="tabpanel" aria-labelledby="Cards-tab">
+ 
+</div>
+<div class="tab-pane fade" id="Cars" role="tabpanel" aria-labelledby="Cars-tab">
+   <div class="row">
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Cars/Elbezm-Group.jp g' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Elbezm Group</h5>
+                  <p class="card-text">Location: New Cairo</p>
+                  <p class="card-text mb-0">Order Time: One day</p>
+                  <p class="card-text">01007010414</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA10</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 500L.E </small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake2.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Cakes Land Egypt</h5>
+                  <p class="card-text">Location: Nase City</p>
+                  <p class="card-text mb-0">Order Time: Two days</p>
+                  <p class="card-text">01006990708</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA20</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 550L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake3.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Cake Dreamz</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: Three days</p>
+                  <p class="card-text">01112572431</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA30</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 600L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+   </div>
+   <div class="row mt-3">
+    <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake4.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Fancy Cake</h5>
+                  <p class="card-text">Location: ElThawra, Cairo</p>
+                  <p class="card-text mb-0">Order Time: One day</p>
+                  <p class="card-text">01066777089</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA40</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 450L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake5.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Yummy Tummy</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: Two days</p>
+                  <p class="card-text">01140533588</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA50</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 350L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake6.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Bakelicious</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: One day</p>
+                  <p class="card-text">01099549433</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA60</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 400L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+   </div>
+   <div class="row mt-3">
+    <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake7.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Cake Design</h5>
+                  <p class="card-text">Location: Alexandria</p>
+                  <p class="card-text mb-0">Order Time: Two days</p>
+                  <p class="card-text">01115567632</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA70</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 550L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake8.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Tortina</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: Three days</p>
+                  <p class="card-text">01201937634</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA80</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 600L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/cake/cake11.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Etsa Cake</h5>
+                  <p class="card-text">Location: Cairo</p>
+                  <p class="card-text mb-0">Order Time: One days</p>
+                  <p class="card-text">01014601608</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: CA110</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">Starts from 400L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+   </div>
+      
+</div>
+<div class="tab-pane fade" id="Catering" role="tabpanel" aria-labelledby="Catering-tab">
+    
+</div>
+<div class="tab-pane fade" id="Flowers" role="tabpanel" aria-labelledby="Flowers-tab">
+  <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow1.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" style="height: 100px" >
+                  <h5 class="card-title">Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B100</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">900L.E</small></p></span>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow2.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Blush Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B101</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">600L.E</small></p></span>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow3.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B103</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">1000L.E</small></p></span>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow4.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B104</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">800L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow5.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Blue Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B105</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">850L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow6.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B106</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">660L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+        </div>
+        <div class="row mt-3">
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow7.jpeg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Dreaming Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: MB107</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">1100L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/flowers/flow8.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body" style="height: 100px">
+                  <h5 class="card-title">Wedding Bouquet</h5>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: B108</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">750L.E</small></p></span>
+                </div>
+            </div>
+         </div>
+        </div>   
+</div>
+<div class="tab-pane fade" id="Halls" role="tabpanel" aria-labelledby="Halls-tab">
+  
+</div>
+<div class="tab-pane fade" id="Photographers" role="tabpanel" aria-labelledby="Photographers-tab">
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/marzok.service.jpg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Marzouk Ismail</h5>
+                  <a href="https://www.facebook.com/marzoukismail1996/" class="card-link">https://www.facebook.com/marzoukismail1996/</a>
+                  <p class="card-text">0112 911 1947</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P134</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">6000L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/kattan.service.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ahmed Kattan</h5>
+                  <a href="https://www.facebook.com/ahmedkattanphotography/" target="_blank" class="card-link">https://www.facebook.com/ahmedkattanphotography/</a>
+                  <p class="card-text">0101 101 1508</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P138</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">5000L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/Bendary.service.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Bendary</h5>
+                  <a href="https://www.facebook.com/Bendaryphotography" target="_blank" class="card-link">https://www.facebook.com/Bendaryphotography</a>
+                  <p class="card-text">0103 000 9933</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P139</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">6000L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+     </div>
+     <div class="row mt-3">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/emad.service.jpg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Mohamed Emad</h5>
+                  <a href="https://www.facebook.com/mmaa344/" class="card-link">https://www.facebook.com/mmaa344/</a>
+                  <p class="card-text">0102 730 6089</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P137</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">1600L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/hamada.service.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Hamada Omar</h5>
+                  <a href="https://www.facebook.com/Hamadaomarph" target="_blank" class="card-link">https://www.facebook.com/Hamadaomarph</a>
+                  <p class="card-text">0109 169 2427</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P138</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">4000L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/islam.service.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Islam Badr</h5>
+                  <a href="https://www.facebook.com/Islam.Badr.Photogarphie" target="_blank" class="card-link">https://www.facebook.com/Islam.Badr.Photogarphie</a>
+                  <p class="card-text">0109 484 3067</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P139</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">6500L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+     </div>
+     <div class="row mt-3">
+        <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/mostafa.service.jpg' %}" target="_blank" class="card-img-top " alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title">Mostafa Elrayan</h5>
+                  <a href="https://www.facebook.com/Mostafa.Elrayan121/" class="card-link">https://www.facebook.com/Mostafa.Elrayan121/</a>
+                  <p class="card-text">0101 967 2011</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P142</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">3400L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/karim.service.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Karim Albltagy</h5>
+                  <a href="https://www.facebook.com/Karim.Albltagy.Photographer/" target="_blank" class="card-link">https://www.facebook.com/Karim.Albltagy.Photographer//</a>
+                  <p class="card-text">0122 424 2702</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P140</small></p></span>
+                  <span class="te2"><p class="card-text"><small class="text-muted">3000L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+         <div class="col-lg-4 col-md-6">
+            <div class="card" >
+                <img src="{% static 'blog/img/Photographers/kejo.service.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">kejo</h5>
+                  <a href="https://www.facebook.com/kejophotographer/" target="_blank" class="card-link">https://www.facebook.com/kejophotographer/</a>
+                  <p class="card-text">0127 521 3151</p>
+                  <span class="te1"><p class="card-text"><small class="text-muted">code: P141</small></p></span>
+                  <span class="te2" ><p class="card-text"><small class="text-muted">3500L.E</small></p></span>
+                </div>
+            </div>
+      </div>
+     </div>
+</div>
+
+
+</div>
+            
+          </div>
+          
+          
+      </div>
+  </section>
+
+
+
+
+
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+             <div class="col-lg-6">
+                 <div class="footer-text">
+                     <h4>About</h4>
+                     <p >Our aim is to make your dreams </p>
+                      <p class="another">About your wedding day come true</p>
+                     </div>
+             </div>
+             <div class="col-lg-6">
+                <h4>Contact us</h4>
+                 <div class="footer-icons ">
+                     <div class="row">
+                        <img src="{% static 'blog/img/map.png' %}">
+                        <img src="{% static 'blog/img/whatsapp.png' %}">
+                        <img src="{% static 'blog/img/facebook.png' %}">
+                        <img src="{% static 'blog/img/instagram.png' %}">
+                     
+                     </div>
+                     </div>
+             </div>
+             </div>
+             </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>    
+</body>
+    </html>

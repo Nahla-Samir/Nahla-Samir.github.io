@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Happy Marriage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{% static 'blog/img/logo-favicon.png' %}" type="image/gif" sizes="16x16">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="{% static 'blog/main.css'%}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+      <!---start topbar -->
+
+      <div class="container">
+        <ul class="nav justify-content-end">
+            {% if user.is_authenticated %}
+                 <li class="nav-item">
+                  <a class="nav-link diff " href="{% url 'profile' %}">Profile</a>
+                </li>
+                <div class="vl"></div>
+                <li class="nav-item">
+                  <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+                </li>
+                <div class="vl"></div>
+
+            {% else %}
+                <li class="nav-item">
+                <a class="nav-link diff " href="{% url 'login' %}">Sign in</a>
+                </li>
+                <div class="vl"></div>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Sign up</a>
+                </li>
+                <div class="vl"></div>
+            {% endif %}
+          </ul>    
+  </div>
+  <hr>    
+      <!---end topbar -->
+
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+<a class="navbar-brand" href="/">
+<img class="logo" src="{% static 'blog/img/logo-light.png' %}" href="/">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+<ul class="navbar-nav ">
+<li class="nav-item ">
+ <a class="nav-link " href="/">Home </a>
+</li>
+<li class="nav-item active">
+ <a class="nav-link page-title" href="">About <span class="sr-only ">(current)</span></a>
+</li>
+<li class="nav-item ">
+ <a class="nav-link " href="/services">Services </a>
+</li>
+<li class="nav-item ">
+ <a class="nav-link " href="/feedback">Feedback </a>
+</li>
+<li class="nav-item  ">
+    <a class="nav-link " href="/offers">Offers</a>
+   </li>
+<li class="nav-item">
+ <a class="nav-link btn btn-warning" href="/tryme">Try me</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+        
+    </header>
+
+    <section class="below-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h1>About</h1>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">About</li>
+                        </ol>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="About">
+        <div class="container">
+            <div class="row">
+               
+                <div class="col-lg-6 ">
+                    <div class="make-text">
+                        <span class="line"></span>
+                        <h3>About Us</h3>
+                        <h2>We plan every detail of 
+                            your Wedding.</h2>
+                        <p>Wedding Planners help couples successfully plan
+                            their wedding day and see that everything runs 
+                            smoothly. As a wedding planner, your responsibilities 
+                            include establishing a planning timeline and working 
+                            with the bride and groom to choose everything from
+                            attire, to ceremony and reception venues, music, 
+                            and food.  Wedding Planners help couples 
+                            successfully plan their wedding day and see that 
+                            everything runs smoothly. As a wedding planner, 
+                            your responsibilities include establishing a planning 
+                            timeline and working with the bride and groom to 
+                            choose everything from attire, to ceremony and 
+                            reception venues, music, and food. Wedding 
+                            Planners help couples successfully plan their 
+                            wedding day and see that everything runs smoothly. 
+                            </p>
+                    </div>
+                </div>
+                 <div class="col-lg-6">
+                    <div class="make-mix ">
+                        <div class="rectangle1">
+                            <svg width="461" height="489">
+                                <rect width="461" height="489" style="fill:#fff;stroke-width:3;stroke:#492C13"/>static 'blog/img/logo-favicon.png'
+                              </svg>
+                        </div>
+                        <div class="rectangle2">
+                            <svg width="461" height="489">
+                                <rect width="461" height="489" style="fill:transparent;stroke-width:3;stroke:#492C13" />
+                              </svg>
+                        </div>
+                        <div class="rectangle3">
+                            <img src="{%static 'blog/img/about1.png' %}" width="461" height="489">
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="About2">
+        <div class="container">
+            <div class="row">
+                 <div class="col-lg-6 m-auto">
+                    <div class="make-mix">
+                        <div class="rectangle1">
+                            <svg width="461" height="489">
+                                <rect width="461" height="489" style="fill:#fff;stroke-width:3;stroke:#492C13"/>
+                              </svg>
+                        </div>
+                        <div class="rectangle2">
+                            <svg width="461" height="489">
+                                <rect width="461" height="489" style="fill:transparent;stroke-width:3;stroke:#492C13" />
+                              </svg>
+                        </div>
+                        <div class="rectangle3">
+                            <img src="{% static 'blog/img/abut2.png' %}" width="461" height="489">
+                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    
+                    <div class="make-text">
+                        <span class="line"></span>
+                        <h4>OUR EXquisite services</h4>
+                        <h2>What we offer our Esteemed Clients.</h2>
+                        <div class="about2-text">
+                            <span class="line2"></span>
+                        <h3>Wedding Planning & budgeting</h3>
+                        <p>Wedding Planners help couples successfully plan
+                            their wedding day and see that everything runs </p>
+                        </div>
+                        <div class="about2-text">
+                            <span class="line2"></span>
+                        <h3>Event & Guest coordination</h3>
+                        <p>Wedding Planners help couples successfully plan
+                            their wedding day and see that everything runs </p>
+                        </div>
+                        <div class="about2-text">
+                            <span class="line2"></span>
+                        <h3>Venue Booking & Decoration</h3>
+                        <p>Wedding Planners help couples successfully plan
+                            their wedding day and see that everything runs </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+             <div class="col-lg-6 col-md-6 col-sm-6">
+                 <div class="footer-text">
+                     <h4>About</h4>
+                     <p >Our aim is to make your dreams </p>
+                      <p class="another">About your wedding day come true</p>
+                     </div>
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4>Contact us</h4>
+                 <div class="footer-icons ">
+                     <div class="row">
+                        <img src="{% static 'blog/img/map.png' %}">
+                        <img src="{% static 'blog/img/whatsapp.png' %}">
+                        <img src="{% static 'blog/img/facebook.png' %}">
+                        <img src="{% static 'blog/img/instagram.png' %}">
+                     
+                     </div>
+                     </div>
+             </div>
+             </div>
+             </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>    
+</body>
+    </html>
